@@ -1,0 +1,128 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "com.ingenx.leavemanagementui",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.18.0",
+      "toolsId": "ce783396-da81-419b-9496-0e7c4e5f86e6"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/leave-management-srv/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.ingenx.leavemanagementui.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "com.ingenx.leavemanagementui.view",
+        "async": true,
+        "viewPath": "com.ingenx.leavemanagementui.view"
+      },
+      "routes": [
+        {
+          "name": "RoutehomePage",
+          "pattern": ":?query:",
+          "target": [
+            "TargethomePage"
+          ]
+        },
+        {
+          "name": "RouteemployeeRecord",
+          "pattern": "addrecord",
+          "target": [
+            "TargetemployeeRecord"
+          ]
+        }
+      ],
+      "targets": {
+        "TargethomePage": {
+          "id": "homePage",
+          "name": "homePage"
+        },
+        "TargetemployeeRecord": {
+          "id": "employeeRecord",
+          "name": "employeeRecord"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "com.ingenx.leavemanagementui.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

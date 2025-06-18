@@ -6,50 +6,53 @@ POST http://localhost:4004/odata/v4/leave-management-srv/employeeRecord
 Content-Type: application/json
 
 {
-    "firstName": "Williams",
-    "lastName": "Jones",
-    "email": "williams.jones@example.com",
-    "phoneNumber": "3344556677",
+    "empID": "EMP00009",
+    "firstName": "Liam",
+    "lastName": "hernandez",
+    "email": "hernandez.hernandez@example.com",
+    "phoneNumber": "9012345678",
     "countryCode": "+1",
-    "dob": "1988-07-25",
-    "dateOfJoin": "2018-11-05",
-    "department": "Finance",
-    "designation": "Financial Analyst",
-    "salary": 70000.00,
-    "address": "654 Maple St, Springfield, IL",
-    "reportingManger": "Linda Taylor"
+    "dob": "1987-04-04",
+    "dateOfJoin": "2019-02-02",
+    "department": "Sales",
+    "designation": "Sales Manager",
+    "salary": 90000.00,
+    "address": "357 Fir St, Springfield, IL",
+    "reportingManger": "Michael Smith"
 }
+
 
 
 ###
 
-PUT http://localhost:4004/odata/v4/leave-management-srv/employeeRecord(email='john.doe@example.com')
+PUT http://localhost:4004/odata/v4/leave-management-srv/employeeRecord(email='liam.hernandez@example.com')
 Content-Type: application/json
 
 {
-    "firstName": "Michael",
-    "lastName": "Williams",
-    "email": "michael.williams@example.com",
-    "phoneNumber": "1122334455",
-    "countryCode": "+1",
-    "dob": "1992-12-31",
-    "designation": "Sales Executive",
-    "salary": 60000.00,
-    "address": "789 Oak St, Springfield, IL",
-    "reportingManger": "Sarah Davis"
+    "empID": "EMP00009",
+    "firstName": "Liam",
+    "lastName": "Hernandez",
+    "phoneNumber": "9012345678",
+    "countryCode": "+15",
+    "dob": "1987-04-04",
+    "dateOfJoin": "2019-02-02",
+    "department": "Sales",
+    "designation": "Sales Manager",
+    "salary": 80000.00,
+    "address": "357 Fir St, Springfield, IL",
+    "reportingManger": "Michael Smith"
 }
 
 ###
-PATCH http://localhost:4004/odata/v4/leave-management-srv/employeeRecord(email='john.doe@example.com')
+PATCH http://localhost:4004/odata/v4/leave-management-srv/employeeRecord(email='liam.hernandez@example.com')
 Content-Type: application/json
 
 {
-    "firstName": "John",
-    "lastName": "Doe"
+    "salary" :50000
 }
 
 ###
-DELETE http://localhost:4004/odata/v4/leave-management-srv/employeeRecord(email='john.doe@example.com')
+DELETE http://localhost:4004/odata/v4/leave-management-srv/employeeRecord(email='Hernandez.hernandez@example.com')
 
 ###
 GET http://localhost:4004/odata/v4/leave-management-srv/leaveRequest

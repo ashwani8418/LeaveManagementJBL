@@ -33,9 +33,32 @@ module.exports = async (srv) => {
     })
 
     srv.on('CREATE', 'employeeRecord', async (req) => {
-        console.log("User Data", req.data);
+        console.log("Req Data", req.data)
+        req.data.salary = req.data.salary + 10000
 
-        let createEmp = await INSERT.into('employeeRecord').entries(req.data);
+        let createEmp = await INSERT.into('employeeRecord').entries(req.data)
+        return;
+    })
+
+
+    srv.on('UPDATE', 'employeeRecord', async (req) => {
+        console.log("Req Data", req.data);
+        console.log("Req Data", req.params);
+        let email = req.data.email
+        
+        let data = req.data;
+        let updateRercod = await UPDATE.entity('employeeRecord').with(data).where({email })
+        return;
+
+       
+    })
+    srv.on('DELETE', 'employeeRecord', async (req) => {
+        console.log("Req Data", req.data);
+        console.log("Req Data", req.params);
+        let email = req.data.email
+        
+        let data = req.data;
+        let deleteRecord = await DELETE.from('employeeRecord').where({email })
         return;
     })
 

@@ -1,0 +1,94 @@
+<mvc:View controllerName="com.ingenx.leavemanagementui.controller.employeeRecord" displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Employee Record">
+        <Table items="{/employeeRecord}">
+            <columns>
+                <Column>
+                    <header>
+                        <Label text="Employee ID"></Label>
+                    </header>
+                </Column>
+                <Column>
+                    <header>
+                        <Label text="First Name"></Label>
+                    </header>
+                </Column>
+                <Column>
+                    <header>
+                        <Label text="Last Name"></Label>
+                    </header>
+                </Column>
+                <Column>
+                    <header>
+                        <Label text="Email"></Label>
+                    </header>
+                </Column>
+                <Column>
+                    <header>
+                        <Label text="Phone Number"></Label>
+                    </header>
+                </Column>
+                <Column>
+                    <header>
+                        <Label text="Country Code"></Label>
+                    </header>
+                </Column>
+                <Column>
+                    <header>
+                        <Label text="Date of Birth"></Label>
+                    </header>
+                </Column>
+                <Column>
+                    <header>
+                        <Label text="Date of Joining"></Label>
+                    </header>
+                </Column>
+                <Column>
+                    <header>
+                        <Label text="Department"></Label>
+                    </header>
+                </Column>
+                <Column>
+                    <header>
+                        <Label text="Designation"></Label>
+                    </header>
+                </Column>
+                <Column>
+                    <header>
+                        <Label text="Salary"></Label>
+                    </header>
+                </Column>
+                <Column>
+                    <header>
+                        <Label text="Address"></Label>
+                    </header>
+                </Column>
+                <Column>
+                    <header>
+                        <Label text="Reporting Manager"></Label>
+                    </header>
+                </Column>
+            </columns>
+            <ColumnListItem >
+                <cells>
+                    <Text text="{empID}"></Text>
+                    <Text text="{firstName}"></Text>
+                    <Text text="{lastName}"></Text>
+                    <Text text="{email}"></Text>
+                    <Text text="{phoneNumber}"></Text>
+                    <Text text="{countryCode}"></Text>
+                    <Text text="{dob}"></Text>
+                    <Text text="{dateOfJoin}"></Text>
+                    <Text text="{department}"></Text>
+                    <Text text="{designation}"></Text>
+                    <Text text="{salary}"></Text>
+                    <Text text="{address}"></Text>
+                    <Text text="{reportingManger}"></Text>
+                </cells>
+            </ColumnListItem>
+        </Table>
+
+
+    </Page>
+</mvc:View>

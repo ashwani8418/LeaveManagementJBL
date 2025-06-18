@@ -1,0 +1,17 @@
+<mvc:View xmlns:core="sap.ui.core" controllerName="com.ingenx.leavemanagementui.controller.homePage"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <GenericTile id="IdHomePGT" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Add Employee" press="onPressAddEmployee">
+            <TileContent >
+                <ImageContent id="idHPAddEmpIcon" src="ssap-icon://add-employee" />
+            </TileContent>
+        </GenericTile>
+        <GenericTile id="tile1" header="Leave Tracker" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="onPressTile"
+            xmlns="sap.m">
+            <TileContent id="tileContent">
+                <ImageContent id="ImageContent" src="sap-icon://bbyd-dashboard" />
+            </TileContent>
+        </GenericTile>
+    </Page>
+</mvc:View>

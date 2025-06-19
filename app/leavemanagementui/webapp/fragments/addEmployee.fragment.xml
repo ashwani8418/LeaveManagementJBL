@@ -1,0 +1,68 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form" xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog id="IdHMAddEmp" showHeader="true" title="Add Employee" contentHeight="auto">
+    <content>
+        <form:SimpleForm>
+            <form:content>
+                <Label text="First Name" required="true" design="Bold"></Label>
+                <Input value="{empRecord>/firstName}"></Input>
+                
+                <Label text="Last Name" required="true" design="Bold"></Label>
+                <Input value="{empRecord>/lastName}"></Input>
+                
+                <Label text="Email" required="true" design="Bold"></Label>
+                <Input value="{empRecord>/email}"></Input>
+                
+                <Label text="Phone Number" required="true" design="Bold"></Label>
+                <Input value="{empRecord>/phoneNumber}"></Input>
+                
+                <Label text="Country Code" required="true" design="Bold"></Label>
+                <Input value="{empRecord>/countryCode}"></Input>
+                
+                <Label text="Date of Birth" required="true" design="Bold"></Label>
+                <Input value="{empRecord>/dob}" type="Date"></Input>
+                
+                <Label text="Date of Joining" required="true" design="Bold"></Label>
+                <Input value="{empRecord>/dateOfJoin}" type="Date"></Input>
+                
+                
+                
+                <Label text="Department" required="true" design="Bold"></Label>
+                <Select selectedKey="{empRecord>/department}">
+                    <core:Item key="" text="Select"></core:Item>
+                    <core:Item key="HR" text="Human Resource"></core:Item>
+                    <core:Item key="Finance" text="Finance"></core:Item>
+                    <core:Item key="Delv" text="Delivery"></core:Item>
+                    <core:Item key="Cloud" text="Cloud"></core:Item>
+                    <core:Item key="IT" text="IT"></core:Item>
+                </Select>
+                
+                <Label text="Designation" required="true" design="Bold"></Label>
+                <Select selectedKey="{empRecord>/designation}">
+                    <core:Item key="" text="Select"></core:Item>
+                    <core:Item key="T1" text="Associate"></core:Item>
+                    <core:Item key="T1" text="Consultant"></core:Item>
+                    <core:Item key="T3" text="Senior Consultant"></core:Item>
+                    <core:Item key="T4" text="Principle Consultant"></core:Item>
+                    <core:Item key="T5" text="Manager"></core:Item>
+                </Select>
+                
+                <Label text="Salary" required="true" design="Bold"></Label>
+                <Input value="{empRecord>/salary}" type="Number"></Input>
+                
+                <Label text="Address" required="true" design="Bold"></Label>
+                <Input value="{empRecord>/address}"></Input>
+                
+                <Label text="Reporting Manager" required="true" design="Bold"></Label>
+                <Input value="{empRecord>/reportingManger}"></Input>
+            </form:content>
+        </form:SimpleForm>
+    </content>
+    <beginButton>
+        <Button text="Submit Record" press="onPressSubmitRecord" type="Emphasized"></Button>
+    </beginButton>
+    <endButton>
+        <Button text="Close" press="onPressCloseDialog" type="Negative"></Button>
+    </endButton>
+</Dialog>
+
+</core:FragmentDefinition>

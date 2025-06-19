@@ -1,3 +1,4 @@
+const { error } = require("@sap/cds");
 const {
     string
 } = require("@sap/cds/lib/core/classes");
@@ -14,7 +15,8 @@ module.exports = async (srv) => {
         try {
             let isMissingData = validateEmployeeRecord(req.data);
             if (!isMissingData.valid) {
-                req.reject(isMissingData.errors)
+                req.reply(isMissingData.errors);
+
             }
             let getLastEmpRecord = await SELECT.from('employeeRecord', ['empID']).orderBy('createdAt desc').limit(1);
             if(getLastEmpRecord.length === 0){
@@ -25,6 +27,7 @@ module.exports = async (srv) => {
                 let newGeneratedEID = generateEmpId(getLastEmpRecord[0].empID);
                 req.data.empID = newGeneratedEID
             }
+
            
         } catch (error) {
             req.reject(error)

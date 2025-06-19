@@ -2,6 +2,15 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <Page title="Employee Record">
+    <Bar class="sapUiSmallMarginTop sapUiSmallMarginBottom">
+        <contentRight>
+            <Button text="Add Employee" type="Emphasized" press="onPressAddEmployee"></Button>
+            <Button text="Edit Record" type="Emphasized"></Button>
+            <Button text="Delete" type="Emphasized"></Button>
+
+        </contentRight>
+    </Bar>
+
         <Table items="{/employeeRecord}">
             <columns>
                 <Column>
@@ -66,7 +75,7 @@
                 </Column>
                 <Column>
                     <header>
-                        <Label text="Reporting Manager"></Label>
+                        <Label text="Reporting Manager" wrapping="true"></Label>
                     </header>
                 </Column>
             </columns>

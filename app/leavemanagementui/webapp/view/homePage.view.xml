@@ -4,7 +4,7 @@
     <Page id="page" title="{i18n>title}">
         <GenericTile id="IdHomePGT" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="Add Employee" press="onPressAddEmployee">
             <TileContent >
-                <ImageContent id="idHPAddEmpIcon" src="ssap-icon://add-employee" />
+                <ImageContent id="idHPAddEmpIcon" src="sap-icon://add-employee" />
             </TileContent>
         </GenericTile>
         <GenericTile id="tile1" header="Leave Tracker" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" press="onPressTile"

@@ -5,13 +5,14 @@
     <Bar class="sapUiSmallMarginTop sapUiSmallMarginBottom">
         <contentRight>
             <Button text="Add Employee" type="Emphasized" press="onPressAddEmployee"></Button>
-            <Button text="Edit Record" type="Emphasized"></Button>
-            <Button text="Delete" type="Emphasized"></Button>
+            <Button id="IdLMEditbtn" text="Edit Record" type="Emphasized" press ="onPressEditRecord"></Button>
+            <Button id="IdLMDeletebtn" text="Delete" type="Emphasized"  press="onPressDelete"></Button>
+            <Button id="IdLMCnfDeletebtn" text="Confirm" type="Emphasized"  press="onConfirmDelete" visible="false"></Button>
 
         </contentRight>
     </Bar>
 
-        <Table items="{/employeeRecord}">
+        <Table id="IdLMEmplTable" items="{/employeeRecord}" mode="None"  selectionChange="onEmpRowSelection" >
             <columns>
                 <Column>
                     <header>
@@ -84,6 +85,9 @@
                     <Text text="{empID}"></Text>
                     <Text text="{firstName}"></Text>
                     <Text text="{lastName}"></Text>
+
+                    <!-- <Input value="{firstName}" ></Input>
+                    <Input value="{lastName}"></Input> -->
                     <Text text="{email}"></Text>
                     <Text text="{phoneNumber}"></Text>
                     <Text text="{countryCode}"></Text>

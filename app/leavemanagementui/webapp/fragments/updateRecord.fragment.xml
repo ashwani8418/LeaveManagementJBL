@@ -1,33 +1,36 @@
 <core:FragmentDefinition xmlns:form="sap.ui.layout.form" xmlns="sap.m" xmlns:core="sap.ui.core">
-    <Dialog id="IdLMAddEmp" showHeader="true" title="Add Employee" contentHeight="auto">
+    <Dialog id="IdLMUpdateEmp" showHeader="true" title="Update Employee" contentHeight="auto">
     <content>
         <form:SimpleForm>
             <form:content>
+                <Label text="Employee ID" required="true" design="Bold"></Label>
+                <Input value="{updateRecord>/empID}" editable="false"></Input>
+
                 <Label text="First Name" required="true" design="Bold"></Label>
-                <Input value="{empRecord>/firstName}"></Input>
+                <Input value="{updateRecord>/firstName}"></Input>
                 
                 <Label text="Last Name" required="true" design="Bold"></Label>
-                <Input value="{empRecord>/lastName}"></Input>
+                <Input value="{updateRecord>/lastName}"></Input>
                 
                 <Label text="Email" required="true" design="Bold"></Label>
-                <Input value="{empRecord>/email}"></Input>
+                <Input value="{updateRecord>/email}"></Input>
                 
                 <Label text="Phone Number" required="true" design="Bold"></Label>
-                <Input value="{empRecord>/phoneNumber}"></Input>
+                <Input value="{updateRecord>/phoneNumber}"></Input>
                 
                 <Label text="Country Code" required="true" design="Bold"></Label>
-                <Input value="{empRecord>/countryCode}"></Input>
+                <Input value="{updateRecord>/countryCode}"></Input>
                 
                 <Label text="Date of Birth" required="true" design="Bold"></Label>
-                <Input value="{empRecord>/dob}" type="Date"></Input>
+                <Input value="{updateRecord>/dob}" type="Date"></Input>
                 
                 <Label text="Date of Joining" required="true" design="Bold"></Label>
-                <Input value="{empRecord>/dateOfJoin}" type="Date"></Input>
+                <Input value="{updateRecord>/dateOfJoin}" type="Date"></Input>
                 
                 
                 
                 <Label text="Department" required="true" design="Bold"></Label>
-                <Select selectedKey="{empRecord>/department}">
+                <Select selectedKey="{updateRecord>/department}">
                     <core:Item key="" text="Select"></core:Item>
                     <core:Item key="HR" text="Human Resource"></core:Item>
                     <core:Item key="Finance" text="Finance"></core:Item>
@@ -37,7 +40,7 @@
                 </Select>
                 
                 <Label text="Designation" required="true" design="Bold"></Label>
-                <Select selectedKey="{empRecord>/designation}">
+                <Select selectedKey="{updateRecord>/designation}">
                     <core:Item key="" text="Select"></core:Item>
                     <core:Item key="T1" text="Associate"></core:Item>
                     <core:Item key="T1" text="Consultant"></core:Item>
@@ -47,21 +50,21 @@
                 </Select>
                 
                 <Label text="Salary" required="true" design="Bold"></Label>
-                <Input value="{empRecord>/salary}" type="Number"></Input>
+                <Input value="{updateRecord>/salary}" type="Number"></Input>
                 
                 <Label text="Address" required="true" design="Bold"></Label>
-                <Input value="{empRecord>/address}"></Input>
+                <Input value="{updateRecord>/address}"></Input>
                 
                 <Label text="Reporting Manager" required="true" design="Bold"></Label>
-                <Input value="{empRecord>/reportingManger}"></Input>
+                <Input value="{updateRecord>/reportingManger}"></Input>
             </form:content>
         </form:SimpleForm>
     </content>
     <beginButton>
-        <Button id="IdHMCreateBtn" press="onPressSubmitRecord" type="Emphasized" ></Button>
+        <Button id="IdHMUpdateBtn" text="Update Record" press="onPressUpdateRecord" type="Emphasized" ></Button>
     </beginButton>
     <endButton>
-        <Button text="Close" press="onPressAddCloseDialog" type="Negative"></Button>
+        <Button  text="Close" press="onPressRecCloseDialog" type="Negative"></Button>
     </endButton>
 </Dialog>
 

@@ -6,8 +6,6 @@ const {
 module.exports = async (srv) => {
     srv.on('READ', 'employeeRecord', async (req) => {
         const queryResponse = await SELECT.from('employeeRecord')
-        console.log("employeeRecord", queryResponse);
-        queryResponse.dummy = "Testing";
         return queryResponse;
     })
 
@@ -15,8 +13,11 @@ module.exports = async (srv) => {
         try {
             let isMissingData = validateEmployeeRecord(req.data);
             if (!isMissingData.valid) {
-                req.reply(isMissingData.errors);
-
+                
+                return req.reject({
+                    StatusCode : 400,
+                    message : isMissingData.errors
+                });
             }
             let getLastEmpRecord = await SELECT.from('employeeRecord', ['empID']).orderBy('createdAt desc').limit(1);
             if(getLastEmpRecord.length === 0){
@@ -36,25 +37,28 @@ module.exports = async (srv) => {
     })
 
     srv.on('CREATE', 'employeeRecord', async (req) => {
-        console.log("Req Data", req.data)
+        // console.log("Req Data", req.data)
         req.data.salary = req.data.salary + 10000
 
-        let createEmp = await INSERT.into('employeeRecord').entries(req.data)
-        return;
+        try {
+            let createEmp = await INSERT.into('employeeRecord').entries(req.data);
+        } catch (error) {
+            return req.reject({Code : 401, message : error.message})
+        }
     })
 
 
-    srv.on('UPDATE', 'employeeRecord', async (req) => {
-        console.log("Req Data", req.data);
-        console.log("Req Data", req.params);
-        let email = req.data.email
+    // srv.on('UPDATE', 'employeeRecord', async (req) => {
+    //     console.log("Req Data", req.data);
+    //     console.log("Req Data", req.params);
+    //     let email = req.data.email
         
-        let data = req.data;
-        let updateRercod = await UPDATE.entity('employeeRecord').with(data).where({email })
-        return;
+    //     let data = req.data;
+    //     let updateRercod = await UPDATE.entity('employeeRecord').with(data).where({email })
+    //     return;
 
        
-    })
+    // })
     srv.on('DELETE', 'employeeRecord', async (req) => {
         console.log("Req Data", req.data);
         console.log("Req Data", req.params);
